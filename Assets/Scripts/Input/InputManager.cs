@@ -6,7 +6,7 @@ namespace ShootEmUp
     {
         public float HorizontalDirection { get; private set; }
 
-        [SerializeField] private AttackAgent _attackAgent;
+        [SerializeField] private AttackComponent _attackComponent;
         [SerializeField] private GameObject _character;
         
 
@@ -14,7 +14,7 @@ namespace ShootEmUp
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                _attackAgent.Attack();
+                _attackComponent.Attack();
                 //characterController._fireRequired = true;
             }
 

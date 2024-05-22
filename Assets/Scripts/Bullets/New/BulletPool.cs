@@ -5,32 +5,72 @@ namespace ShootEmUp
 {
     public class BulletPool : MonoBehaviour
     {
-        [SerializeField]
-        private int initialCount = 50;
-
+        [SerializeField] private LevelBounds levelBounds;
         [SerializeField] private Transform container;
         [SerializeField] private Bullet prefab;
 
-        private readonly Queue<Bullet> m_bulletPool = new();
+        private readonly Queue<Bullet> pool = new();
+        private readonly HashSet<Bullet> activeBullets = new();
+        private readonly List<Bullet> cache = new();
 
         private void Awake()
         {
-            for (var i = 0; i < this.initialCount; i++)
+
+        }
+
+        public BulletPool(Transform container, Bullet prefab)
+        {
+            this.container = container;
+            this.prefab = prefab;
+        }
+
+        public void Initialize(int initialCount)
+        {
+            for (var i = 0; i < initialCount; i++)
             {
                 var bullet = Instantiate(this.prefab, this.container);
-                this.m_bulletPool.Enqueue(bullet);
+                pool.Enqueue(bullet);
             }
+
+            Debug.Log(pool.Count.ToString());
         }
 
         public Bullet GetBullet()
         {
-            return this.m_bulletPool.Dequeue();
+            if (pool.TryDequeue(out var bullet))
+            {
+                bullet.gameObject.SetActive(true);
+            }
+            else
+            {
+                bullet = Instantiate(prefab, container);
+            }
+
+            activeBullets.Add(bullet);
+            return bullet;
         }
 
-        public void ReturnBullet(Bullet bullet)
+        public void RemoveBullet(Bullet bullet)
         {
-            bullet.transform.SetParent(this.container);
-            this.m_bulletPool.Enqueue(bullet);
+            if (this.activeBullets.Remove(bullet))
+            {
+                bullet.transform.SetParent(this.container);
+                pool.Enqueue(bullet);
+            }
+        }
+
+        public void UpdatePool()
+        {
+            cache.Clear();
+            cache.AddRange(activeBullets);
+
+            foreach (var bullet in cache)
+            {
+                if (!this.levelBounds.InBounds(bullet.transform.position))
+                {
+                    this.RemoveBullet(bullet);
+                }
+            }
         }
     }
 }

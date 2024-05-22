@@ -1,20 +1,33 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace ShootEmUp
 {
     public sealed class MainBulletSystem : MonoBehaviour
     {
-        [SerializeField] private BulletPool bulletPool;
-        [SerializeField] private BulletManager bulletManager;
-        [SerializeField] private CollisionHandler bulletCollisionHandler;
-        [SerializeField] public Transform worldTransform;
+        [SerializeField] private int initialCount = 50;
 
-        public void FlyBulletByArgs(Args args)
+        [SerializeField] private Transform container;
+        [SerializeField] private Bullet prefab;
+        [SerializeField] private Transform worldTransform;
+
+        [SerializeField] private BulletPool bulletPool;
+
+        private void Awake()
         {
-            var bullet = this.bulletPool.GetBullet();
-            // Initialize bullet properties
-            bullet.transform.SetParent(this.worldTransform);
+            bulletPool = new BulletPool(container, prefab);
+            bulletPool.Initialize(initialCount);
+        }
+
+        private void FixedUpdate()
+        {
+            bulletPool.UpdatePool();
+        }
+
+        public void FlyBulletByArgs(MainBulletSystem.Args args)
+        {
+            var bullet = bulletPool.GetBullet();
+
+            bullet.transform.SetParent(worldTransform);
             bullet.SetPosition(args.position);
             bullet.SetColor(args.color);
             bullet.SetPhysicsLayer(args.physicsLayer);
@@ -22,8 +35,14 @@ namespace ShootEmUp
             bullet.isPlayer = args.isPlayer;
             bullet.SetVelocity(args.velocity);
 
-            this.bulletManager.AddBullet(bullet);
-            bullet.OnCollisionEntered += this.bulletCollisionHandler.OnBulletCollision;
+            bullet.OnCollisionEntered += OnBulletCollision;
+        }
+
+        private void OnBulletCollision(Bullet bullet, Collision2D collision)
+        {
+            BulletUtils.DealDamage(bullet, collision.gameObject);
+            bullet.OnCollisionEntered -= OnBulletCollision;
+            bulletPool.RemoveBullet(bullet);
         }
 
         public struct Args
@@ -36,4 +55,4 @@ namespace ShootEmUp
             public bool isPlayer;
         }
     }
-    }
+}
