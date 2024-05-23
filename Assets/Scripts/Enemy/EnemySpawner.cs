@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ShootEmUp
 {
-    public sealed class EnemyController : MonoBehaviour
+    public sealed class EnemySpawner : MonoBehaviour
     {
         [Header("Spawn")]
         [SerializeField]

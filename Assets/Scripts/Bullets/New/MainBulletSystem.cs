@@ -14,7 +14,6 @@ namespace ShootEmUp
 
         private void Awake()
         {
-            //bulletPool = new BulletPool(container, prefab);
             bulletPool.Initialize(initialCount);
         }
 
