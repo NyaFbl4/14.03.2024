@@ -19,12 +19,10 @@ namespace ShootEmUp
         {
             this.target = target;
         }
-
         public void Reset()
         {
             this.currentTime = this.countdown;
         }
-
         private void FixedUpdate()
         {
             if (!this.moveAgent.IsReached)
@@ -44,7 +42,6 @@ namespace ShootEmUp
                 this.currentTime += this.countdown;
             }
         }
-
         private void Fire()
         {
             var startPosition = this.weaponComponent.Position;

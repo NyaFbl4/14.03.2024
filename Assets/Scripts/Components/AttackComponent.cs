@@ -5,7 +5,7 @@ namespace ShootEmUp
     public class AttackComponent : MonoBehaviour
     {
         [SerializeField] private GameObject _character;
-        [SerializeField] private BulletSystem _bulletSystem;
+        [SerializeField] private MainBulletSystem _bulletSystem;
         //[SerializeField] private MainBulletSystem _mainBulletSystem;
         [SerializeField] private BulletConfig _bulletConfig;
 
@@ -18,13 +18,13 @@ namespace ShootEmUp
 
             if (_fireRequired)
             {
-                _bulletSystem.FlyBulletByArgs(new BulletSystem.Args
+                _bulletSystem.FlyBulletByArgs(new MainBulletSystem.Args
                 {
                     position = weapon.Position,
                     velocity = weapon.Rotation * Vector3.up * this._bulletConfig.speed,
                     color = this._bulletConfig.color,
-                    physicsLayer = (int)this._bulletConfig.physicsLayer,
-                    //physicsLayer = (int)PhysicsLayer.CHARACTER,
+                    //physicsLayer = (int)this._bulletConfig.physicsLayer,
+                    physicsLayer = (int)PhysicsLayer.CHARACTER,
                     damage = this._bulletConfig.damage,
                     isPlayer = true
                 });
