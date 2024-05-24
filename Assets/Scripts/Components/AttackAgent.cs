@@ -5,7 +5,7 @@ namespace ShootEmUp
     public class AttackAgent : MonoBehaviour
     {
         [SerializeField] private GameObject _character;
-        [SerializeField] private MainBulletSystem _bulletMainSystem;
+        [SerializeField] private BulletManager _bulletManager;
         [SerializeField] private BulletConfig _bulletConfig;
 
         private bool _fireRequired;
@@ -17,7 +17,7 @@ namespace ShootEmUp
 
             if (_fireRequired)
             {
-                _bulletMainSystem.FlyBulletByArgs(new MainBulletSystem.Args
+                _bulletManager.FlyBulletByArgs(new BulletManager.Args
                 {
                     position = weapon.Position,
                     velocity = weapon.Rotation * Vector3.up * this._bulletConfig.speed,

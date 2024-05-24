@@ -10,7 +10,7 @@ namespace ShootEmUp
         private EnemySpawner _enemySpawner;
 
         [SerializeField]
-        private MainBulletSystem _mainBulletSystem;
+        private BulletManager _bulletManager;
         
         private readonly HashSet<GameObject> m_activeEnemies = new();
 
@@ -44,7 +44,7 @@ namespace ShootEmUp
 
         private void OnFire(GameObject enemy, Vector2 position, Vector2 direction)
         {
-            _mainBulletSystem.FlyBulletByArgs(new MainBulletSystem.Args
+            _bulletManager.FlyBulletByArgs(new BulletManager.Args
             {
                 isPlayer = false,
                 physicsLayer = (int) PhysicsLayer.ENEMY,

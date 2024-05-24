@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ShootEmUp
 {
-    public sealed class MainBulletSystem : MonoBehaviour
+    public sealed class BulletManager : MonoBehaviour
     {
         [SerializeField] private int initialCount = 50;
 
@@ -22,7 +22,7 @@ namespace ShootEmUp
             bulletPool.UpdatePool();
         }
 
-        public void FlyBulletByArgs(MainBulletSystem.Args args)
+        public void FlyBulletByArgs(BulletManager.Args args)
         {
             var bullet = bulletPool.GetBullet();
 
