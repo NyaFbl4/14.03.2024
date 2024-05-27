@@ -25,7 +25,6 @@
             <e p="PhysicsLayer.cs" t="Include" />
           </e>
           <e p="Components" t="Include">
-            <e p="AttackAgent.cs" t="Include" />
             <e p="AttackComponent.cs" t="Include" />
             <e p="HitPointsComponent.cs" t="Include" />
             <e p="MoveComponent.cs" t="Include" />
@@ -37,8 +36,8 @@
               <e p="EnemyAttackAgent.cs" t="Include" />
               <e p="EnemyMoveAgent.cs" t="Include" />
             </e>
-            <e p="EnemyManager.cs" t="Include" />
-            <e p="EnemyPositions.cs" t="Include" />
+            <e p="EnemyController.cs" t="Include" />
+            <e p="EnemyPosition.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
           </e>
           <e p="GameManager" t="Include">

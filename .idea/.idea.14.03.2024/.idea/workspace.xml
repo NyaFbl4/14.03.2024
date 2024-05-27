@@ -10,6 +10,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="2h3pRfvskacfxNIs1eBHxbthrc3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,8 +57,13 @@
       <option name="presentableId" value="Default" />
       <updated>1716832609914</updated>
       <workItem from="1716832613333" duration="10000" />
+      <workItem from="1716847827146" duration="56000" />
+      <workItem from="1716848093353" duration="102000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
