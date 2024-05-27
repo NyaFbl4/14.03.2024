@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace ShootEmUp
 {
-    public class BulletPool : MonoBehaviour
+    public sealed class BulletPool : MonoBehaviour
     {
-        [SerializeField] private Transform container;
-        [SerializeField] private Bullet prefab;
-        [SerializeField] private LevelBounds levelBounds;
+        [SerializeField] private Transform _container;
+        [SerializeField] private Bullet _prefab;
+        [SerializeField] private LevelBounds _levelBounds;
 
         private readonly Queue<Bullet> bulletPool = new();
         private readonly HashSet<Bullet> activeBullets = new();
@@ -17,7 +17,7 @@ namespace ShootEmUp
         {
             for (var i = 0; i < initialCount; i++)
             {
-                var bullet = Instantiate(this.prefab, this.container);
+                var bullet = Instantiate(this._prefab, this._container);
                 bulletPool.Enqueue(bullet);
             }
 
@@ -27,7 +27,7 @@ namespace ShootEmUp
         {
             if (this.activeBullets.Remove(bullet))
             {
-                bullet.transform.SetParent(this.container);
+                bullet.transform.SetParent(this._container);
                 bulletPool.Enqueue(bullet);
             }
         }
@@ -38,7 +38,7 @@ namespace ShootEmUp
 
             foreach (var bullet in cache)
             {
-                if (!this.levelBounds.InBounds(bullet.transform.position))
+                if (!this._levelBounds.InBounds(bullet.transform.position))
                 {
                     this.RemoveBullet(bullet);
                 }
@@ -52,7 +52,7 @@ namespace ShootEmUp
             }
             else
             {
-                bullet = Instantiate(prefab, container);
+                bullet = Instantiate(_prefab, _container);
             }
 
             activeBullets.Add(bullet);

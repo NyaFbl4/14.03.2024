@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ShootEmUp
 {
-    public class LevelBounds : MonoBehaviour
+    public sealed class LevelBounds : MonoBehaviour
     {
         [SerializeField]
         private Transform leftBorder;

@@ -4,29 +4,27 @@ namespace ShootEmUp
 {
     public sealed class BulletManager : MonoBehaviour
     {
-        [SerializeField] private int initialCount = 50;
+        [SerializeField] private int _initialCount = 50;
 
-        [SerializeField] private Transform container;
-        [SerializeField] private Bullet prefab;
-        [SerializeField] private Transform worldTransform;
+        [SerializeField] private Transform _worldTransform;
 
-        [SerializeField] private BulletPool bulletPool;
+        [SerializeField] private BulletPool _bulletPool;
 
         private void Awake()
         {
-            bulletPool.Initialize(initialCount);
+            _bulletPool.Initialize(_initialCount);
         }
 
         private void FixedUpdate()
         {
-            bulletPool.UpdatePool();
+            _bulletPool.UpdatePool();
         }
 
         public void FlyBulletByArgs(BulletManager.Args args)
         {
-            var bullet = bulletPool.GetBullet();
+            var bullet = _bulletPool.GetBullet();
 
-            bullet.transform.SetParent(worldTransform);
+            bullet.transform.SetParent(_worldTransform);
             bullet.SetPosition(args.position);
             bullet.SetColor(args.color);
             bullet.SetPhysicsLayer(args.physicsLayer);
@@ -41,7 +39,7 @@ namespace ShootEmUp
         {
             BulletUtils.DealDamage(bullet, collision.gameObject);
             bullet.OnCollisionEntered -= OnBulletCollision;
-            bulletPool.RemoveBullet(bullet);
+            _bulletPool.RemoveBullet(bullet);
         }
 
         public struct Args

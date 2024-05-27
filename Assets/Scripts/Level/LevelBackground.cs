@@ -22,9 +22,9 @@ namespace ShootEmUp
 
         private void Awake()
         {
-            this.startPositionY = this.m_params.m_startPositionY;
-            this.endPositionY = this.m_params.m_endPositionY;
-            this.movingSpeedY = this.m_params.m_movingSpeedY;
+            this.startPositionY = this.m_params.startPositionY;
+            this.endPositionY = this.m_params.endPositionY;
+            this.movingSpeedY = this.m_params.movingSpeedY;
             this.myTransform = this.transform;
             var position = this.myTransform.position;
             this.positionX = position.x;
@@ -52,14 +52,9 @@ namespace ShootEmUp
         [Serializable]
         public sealed class Params
         {
-            [SerializeField]
-            public float m_startPositionY;
-
-            [SerializeField]
-            public float m_endPositionY;
-
-            [SerializeField]
-            public float m_movingSpeedY;
+            public float startPositionY;
+            public float endPositionY;
+            public float movingSpeedY;
         }
     }
 }

@@ -4,27 +4,27 @@ using UnityEngine;
 
 namespace ShootEmUp
 {
-    public sealed class EnemyManager : MonoBehaviour
+    public sealed class EnemyController : MonoBehaviour
     {
-        [SerializeField]
-        private EnemySpawner _enemySpawner;
+        [SerializeField] private EnemySpawner _enemySpawner;
+        [SerializeField] private BulletManager _bulletManager;
+        [SerializeField] private BulletConfig _bulletConfig;
 
-        [SerializeField]
-        private BulletManager _bulletManager;
-        
-        private readonly HashSet<GameObject> m_activeEnemies = new();
+        [SerializeField] private float _timeSpawn;
+
+        private readonly HashSet<GameObject> activeEnemies = new();
 
         private IEnumerator Start()
         {
             while (true)
             {
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(_timeSpawn);
                 var enemy = this._enemySpawner.SpawnEnemy();
                 if (enemy != null)
                 {
-                    if (this.m_activeEnemies.Add(enemy))
+                    if (this.activeEnemies.Add(enemy))
                     {
-                        enemy.GetComponent<HitPointsComponent>().hpEmpty += this.OnDestroyed;
+                        enemy.GetComponent<HitPointsComponent>().OnHpChange += this.OnDestroyed;
                         enemy.GetComponent<EnemyAttackAgent>().OnFire += this.OnFire;
                     }    
                 }
@@ -33,9 +33,9 @@ namespace ShootEmUp
 
         private void OnDestroyed(GameObject enemy)
         {
-            if (m_activeEnemies.Remove(enemy))
+            if (activeEnemies.Remove(enemy))
             {
-                enemy.GetComponent<HitPointsComponent>().hpEmpty -= this.OnDestroyed;
+                enemy.GetComponent<HitPointsComponent>().OnHpChange -= this.OnDestroyed;
                 enemy.GetComponent<EnemyAttackAgent>().OnFire -= this.OnFire;
 
                 _enemySpawner.UnspawnEnemy(enemy);
@@ -49,9 +49,9 @@ namespace ShootEmUp
                 isPlayer = false,
                 physicsLayer = (int) PhysicsLayer.ENEMY,
                 color = Color.red,
-                damage = 1,
+                damage = this._bulletConfig.damage,
                 position = position,
-                velocity = direction * 2.0f
+                velocity = direction * this._bulletConfig.speed
             });
             
         }
