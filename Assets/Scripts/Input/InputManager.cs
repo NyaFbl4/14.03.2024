@@ -8,7 +8,6 @@ namespace ShootEmUp
         public float HorizontalDirection { get; private set; }
         public event Action OnAttack;
 
-
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))

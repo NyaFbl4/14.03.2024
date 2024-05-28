@@ -19,8 +19,9 @@ namespace ShootEmUp
             while (true)
             {
                 yield return new WaitForSeconds(_timeSpawn);
-                var enemy = this._enemySpawner.SpawnEnemy();
-                if (enemy != null)
+                GameObject enemy;
+                
+                if (this._enemySpawner.TrySpawnEnemy(out enemy))
                 {
                     if (this.activeEnemies.Add(enemy))
                     {

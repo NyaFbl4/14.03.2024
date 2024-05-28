@@ -5,9 +5,7 @@ namespace ShootEmUp
     public sealed class BulletManager : MonoBehaviour
     {
         [SerializeField] private int _initialCount = 50;
-
         [SerializeField] private Transform _worldTransform;
-
         [SerializeField] private BulletPool _bulletPool;
 
         private void Awake()

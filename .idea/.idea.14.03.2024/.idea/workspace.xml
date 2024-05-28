@@ -10,12 +10,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPosition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelBounds.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelBackground.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="2h3pRfvskacfxNIs1eBHxbthrc3" />
   <component name="ProjectViewState">
@@ -25,10 +32,11 @@
   <component name="PropertiesComponent">
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -59,6 +67,7 @@
       <workItem from="1716832613333" duration="10000" />
       <workItem from="1716847827146" duration="56000" />
       <workItem from="1716848093353" duration="102000" />
+      <workItem from="1716879011153" duration="4861000" />
     </task>
     <servers />
   </component>
