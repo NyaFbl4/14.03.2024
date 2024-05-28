@@ -11,7 +11,7 @@ namespace ShootEmUp
         private float _positionX;
         private float _positionZ;
 
-        private Transform myTransform;
+        private Transform _myTransform;
 
         [SerializeField] private Params _params;
 
@@ -20,24 +20,24 @@ namespace ShootEmUp
             this._startPositionY = this._params.startPositionY;
             this._endPositionY = this._params.endPositionY;
             this._movingSpeedY = this._params.movingSpeedY;
-            this.myTransform = this.transform;
-            var position = this.myTransform.position;
+            this._myTransform = this.transform;
+            var position = this._myTransform.position;
             this._positionX = position.x;
             this._positionZ = position.z;
         }
 
         private void FixedUpdate()
         {
-            if (this.myTransform.position.y <= this._endPositionY)
+            if (this._myTransform.position.y <= this._endPositionY)
             {
-                this.myTransform.position = new Vector3(
+                this._myTransform.position = new Vector3(
                     this._positionX,
                     this._startPositionY,
                     this._positionZ
                 );
             }
 
-            this.myTransform.position -= new Vector3(
+            this._myTransform.position -= new Vector3(
                 this._positionX,
                 this._movingSpeedY * Time.fixedDeltaTime,
                 this._positionZ

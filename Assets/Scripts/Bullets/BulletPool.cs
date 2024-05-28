@@ -9,34 +9,34 @@ namespace ShootEmUp
         [SerializeField] private Bullet _prefab;
         [SerializeField] private LevelBounds _levelBounds;
 
-        private readonly Queue<Bullet> bulletPool = new();
-        private readonly HashSet<Bullet> activeBullets = new();
-        private readonly List<Bullet> cache = new();
+        private readonly Queue<Bullet> _bulletPool = new();
+        private readonly HashSet<Bullet> _activeBullets = new();
+        private readonly List<Bullet> _cache = new();
 
         public void Initialize(int initialCount)
         {
             for (var i = 0; i < initialCount; i++)
             {
                 var bullet = Instantiate(this._prefab, this._container);
-                bulletPool.Enqueue(bullet);
+                _bulletPool.Enqueue(bullet);
             }
 
-            Debug.Log(bulletPool.Count.ToString());
+            Debug.Log(_bulletPool.Count.ToString());
         }
         public void RemoveBullet(Bullet bullet)
         {
-            if (this.activeBullets.Remove(bullet))
+            if (this._activeBullets.Remove(bullet))
             {
                 bullet.transform.SetParent(this._container);
-                bulletPool.Enqueue(bullet);
+                _bulletPool.Enqueue(bullet);
             }
         }
         public void UpdatePool()
         {
-            cache.Clear();
-            cache.AddRange(activeBullets);
+            _cache.Clear();
+            _cache.AddRange(_activeBullets);
 
-            foreach (var bullet in cache)
+            foreach (var bullet in _cache)
             {
                 if (!this._levelBounds.InBounds(bullet.transform.position))
                 {
@@ -46,7 +46,7 @@ namespace ShootEmUp
         }
         public Bullet GetBullet()
         {
-            if (bulletPool.TryDequeue(out var bullet))
+            if (_bulletPool.TryDequeue(out var bullet))
             {
                 bullet.gameObject.SetActive(true);
             }
@@ -55,7 +55,7 @@ namespace ShootEmUp
                 bullet = Instantiate(_prefab, _container);
             }
 
-            activeBullets.Add(bullet);
+            _activeBullets.Add(bullet);
             return bullet;
         }
     }
