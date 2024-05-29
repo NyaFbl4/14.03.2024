@@ -9,9 +9,9 @@ namespace ShootEmUp
         [SerializeField] private Bullet _prefab;
         [SerializeField] private LevelBounds _levelBounds;
 
-        private readonly Queue<Bullet> _bulletPool = new();
-        private readonly HashSet<Bullet> _activeBullets = new();
-        private readonly List<Bullet> _cache = new();
+        private readonly Queue<Bullet> _bulletPool = new Queue<Bullet>();
+        private readonly HashSet<Bullet> _activeBullets = new HashSet<Bullet>();
+        private readonly List<Bullet> _cache = new List<Bullet>();
 
         public void Initialize(int initialCount)
         {

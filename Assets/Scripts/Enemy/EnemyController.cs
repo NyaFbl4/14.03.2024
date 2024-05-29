@@ -12,7 +12,7 @@ namespace ShootEmUp
 
         [SerializeField] private float _timeSpawn;
 
-        private readonly HashSet<GameObject> _activeEnemies = new();
+        private readonly HashSet<GameObject> _activeEnemies = new HashSet<GameObject>();
 
         private IEnumerator Start()
         {
