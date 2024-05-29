@@ -1,12 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace ShootEmUp
 {
     public interface IGameListener
     {
-        void Method()
+        public static event Action<IGameListener> onRegister;
+        
+        public static void Register(IGameListener gameListener)
         {
-            Debug.Log("Method");
+            if (null != onRegister)
+            {
+                onRegister.Invoke(gameListener);
+            }
         }
     }
     

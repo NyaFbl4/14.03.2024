@@ -64,7 +64,7 @@
           </e>
           <e p="GameManager" t="Include">
             <e p="GameInstaller.cs" t="Include" />
-            <e p="GameListener.cs" t="Include" />
+            <e p="GameListeners.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GameSystem.cs" t="Include" />
           </e>

@@ -23,6 +23,19 @@ namespace ShootEmUp
         private void Awake()
         {
             gameState = GameState.Off;
+
+            IGameListener.onRegister += AddListener;
+        }
+
+        private void OnDestroy()
+        {
+            gameState = GameState.Finish;
+            IGameListener.onRegister -= AddListener;
+        }
+
+        private void AddListener(IGameListener gameListener)
+        {
+            gameListeners.Add(gameListener);
         }
         
         [Button]
