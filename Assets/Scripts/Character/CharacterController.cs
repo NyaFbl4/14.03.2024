@@ -10,8 +10,23 @@ namespace ShootEmUp
         [SerializeField] private GameManager _gameManager;
 
         private void Awake()
+<<<<<<< HEAD
         {
             IGameListener.Register(this);
+=======
+        {
+            IGameListener.Register(this);
+        }
+        
+        private void OnEnable()
+        {
+            
+        }
+
+        private void OnDisable()
+        {
+            
+>>>>>>> origin/main
         }
 
         private void OnCharacterDeath(GameObject _) => this._gameManager.FinishGame();

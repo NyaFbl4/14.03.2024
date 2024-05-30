@@ -4,8 +4,8 @@ using UnityEngine;
 namespace ShootEmUp
 {
     public sealed class InputManager : MonoBehaviour
-    {       
-        public float HorizontalDirection { get; private set; }
+    {
+        public event Action<float> OnMove;
         public event Action OnAttack;
 
         private void Update()
@@ -15,18 +15,22 @@ namespace ShootEmUp
                 OnAttack();
             }
 
+            float direction = 0;
+            
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                this.HorizontalDirection = -1;
+                direction = -1;
             }
             else if (Input.GetKey(KeyCode.RightArrow))
             {
-                this.HorizontalDirection = 1;
+                direction = 1;
             }
             else
             {
-                this.HorizontalDirection = 0;
+                direction = 0;
             }
+            
+            OnMove?.Invoke(direction);
         }
     }
 }

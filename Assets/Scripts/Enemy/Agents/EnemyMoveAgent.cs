@@ -8,8 +8,9 @@ namespace ShootEmUp
         {
             get { return this._isReached; }
         }
-
-        [SerializeField] private MoveComponent _moveComponent;
+        
+        [SerializeField] private Rigidbody2D _rigidbody2D;
+        [SerializeField] private float _speed = 5.0f;
 
         private Vector2 _destination;
         private float _distance = 0.25f;
@@ -37,7 +38,13 @@ namespace ShootEmUp
             }
 
             var direction = vector.normalized * Time.fixedDeltaTime;
-            this._moveComponent.MoveByRigidbodyVelocity(direction);
+            this.MoveByRigidbodyVelocity(direction);
+        }
+        
+        private void MoveByRigidbodyVelocity(Vector2 vector)
+        {
+            var nextPosition = this._rigidbody2D.position + vector * this._speed;
+            this._rigidbody2D.MovePosition(nextPosition);
         }
     }
 }
