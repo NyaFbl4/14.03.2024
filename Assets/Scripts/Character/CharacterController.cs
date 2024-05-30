@@ -9,26 +9,31 @@ namespace ShootEmUp
         [SerializeField] private GameObject _character; 
         [SerializeField] private GameManager _gameManager;
 
+        private void Awake()
+        {
+            IGameListener.Register(this);
+        }
+        
         private void OnEnable()
         {
-            this._character.GetComponent<HitPointsComponent>().OnHpChange += this.OnCharacterDeath;
+            
         }
 
         private void OnDisable()
         {
-            this._character.GetComponent<HitPointsComponent>().OnHpChange -= this.OnCharacterDeath;
+            
         }
 
         private void OnCharacterDeath(GameObject _) => this._gameManager.FinishGame();
 
         public void OnStartGame()
         {
-            
+            this._character.GetComponent<HitPointsComponent>().OnHpChange += this.OnCharacterDeath;
         }
 
         public void OnFinishGame()
         {
-            
+            this._character.GetComponent<HitPointsComponent>().OnHpChange -= this.OnCharacterDeath;
         }
 
         public void OnPauseGame()
