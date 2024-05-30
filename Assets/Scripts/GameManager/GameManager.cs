@@ -23,18 +23,14 @@ namespace ShootEmUp
         private void Awake()
         {
             gameState = GameState.Off;
-<<<<<<< HEAD
             
             IGameListener.onRegister += AddListener;
-=======
-            IGameListener.onRegister += this.AddListener;
->>>>>>> origin/main
         }
 
         private void OnDestroy()
         {
             gameState = GameState.Finish;
-            IGameListener.onRegister -= this.AddListener;
+            IGameListener.onRegister -= AddListener;
         }
 
         private void AddListener(IGameListener gameListener)
@@ -54,6 +50,7 @@ namespace ShootEmUp
             }
 
             gameState = GameState.Start;
+            Debug.Log("OnStartGame");
         }
         
         [Button]
@@ -68,6 +65,7 @@ namespace ShootEmUp
             }
             
             gameState = GameState.Finish;
+            Debug.Log("OnFinishGame");
         }
         
         [Button]
@@ -82,6 +80,7 @@ namespace ShootEmUp
             }
             
             gameState = GameState.Pause;
+            Debug.Log("OnPauseGame");
         }   
         
         [Button]
@@ -95,6 +94,7 @@ namespace ShootEmUp
                 }
             }
             gameState = GameState.Resume;
+            Debug.Log("OnResumeGame");
         }
         
         public void FFinishGame()

@@ -10,8 +10,9 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletPool.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Components/MoveComponent.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2h9ZrTRK7ho8ouGAKNDrm9J0uHs" />
