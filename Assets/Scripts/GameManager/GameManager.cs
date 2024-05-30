@@ -18,12 +18,12 @@ namespace ShootEmUp
         [SerializeField, ReadOnly]
         private GameState gameState;
         
-        private List<IGameListener> gameListeners = new List<IGameListener>();
+        private List<IGameListener> gameListeners = new();
         
         private void Awake()
         {
             gameState = GameState.Off;
-
+            
             IGameListener.onRegister += AddListener;
         }
 
