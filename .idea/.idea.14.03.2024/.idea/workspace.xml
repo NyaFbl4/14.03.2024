@@ -22,6 +22,7 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelBackground.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletPool.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2h3pRfvskacfxNIs1eBHxbthrc3" />
@@ -68,6 +69,7 @@
       <workItem from="1716847827146" duration="56000" />
       <workItem from="1716848093353" duration="102000" />
       <workItem from="1716879011153" duration="5491000" />
+      <workItem from="1717050224290" duration="180000" />
     </task>
     <servers />
   </component>
