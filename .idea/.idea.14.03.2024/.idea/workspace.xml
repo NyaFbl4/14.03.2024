@@ -14,6 +14,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
+<<<<<<< HEAD
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyPosition.cs" />
@@ -24,6 +25,23 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletPool.cs" />
     </changedPaths>
+=======
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelBackground.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Level/LevelBounds.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletPool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemySpawner.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+>>>>>>> 37258ed1dbc1cd41a035580305b6de21769b2d10
   </component>
   <component name="ProjectId" id="2h3pRfvskacfxNIs1eBHxbthrc3" />
   <component name="ProjectViewState">
@@ -35,6 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="Inspections-C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -69,7 +88,11 @@
       <workItem from="1716847827146" duration="56000" />
       <workItem from="1716848093353" duration="102000" />
       <workItem from="1716879011153" duration="5491000" />
+<<<<<<< HEAD
       <workItem from="1717050224290" duration="180000" />
+=======
+      <workItem from="1716914224578" duration="1933000" />
+>>>>>>> 37258ed1dbc1cd41a035580305b6de21769b2d10
     </task>
     <servers />
   </component>
@@ -80,5 +103,11 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="702" y="136" width="998" height="708" key="SettingsEditor" timestamp="1716921352882">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="702" y="136" width="998" height="708" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1716921352882" />
   </component>
 </project>
