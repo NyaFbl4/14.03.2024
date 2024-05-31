@@ -18,7 +18,10 @@ namespace ShootEmUp
         [SerializeField, ReadOnly]
         private GameState gameState;
         
-        private List<IGameListener> gameListeners = new();
+        private readonly List<IGameListener> _gameListeners = new();
+        private readonly List<IGameUpdateListener> _gameUpdateListeners = new();
+        private readonly List<IGameFixedUpdateListener> _gameFixedUpdateListeners = new();
+        private readonly List<IGameLateUpdateListener> _gameLateUpdateListeners = new();
         
         private void Awake()
         {
@@ -33,15 +36,70 @@ namespace ShootEmUp
             IGameListener.onRegister -= AddListener;
         }
 
+        private void Update()
+        {
+            if (gameState != GameState.Start)
+            {
+                return;
+            }
+
+            var deltaTime = Time.deltaTime;
+            for (var i = 0; i < _gameUpdateListeners.Count; i++)
+            {
+                _gameUpdateListeners[i].OnUpdate(deltaTime);
+            }
+        }
+        private void FixedUpdate()
+        {
+            if (gameState != GameState.Start)
+            {
+                return;
+            }
+
+            var deltaTime = Time.deltaTime;
+            for (var i = 0; i < _gameFixedUpdateListeners.Count; i++)
+            {
+                _gameFixedUpdateListeners[i].OnFixedUpdate(deltaTime);
+            }
+        }
+        private void LateUpdate()
+        {
+            if (gameState != GameState.Start)
+            {
+                return;
+            }
+
+            var deltaTime = Time.deltaTime;
+            for (var i = 0; i < _gameLateUpdateListeners.Count; i++)
+            {
+                _gameLateUpdateListeners[i].OnLateUpdate(deltaTime);
+            }
+        }
+
         private void AddListener(IGameListener gameListener)
         {
-            gameListeners.Add(gameListener);
+            _gameListeners.Add(gameListener);
+            
+            if (gameListener is IGameUpdateListener gameUpdateListener)
+            {
+                _gameUpdateListeners.Add(gameUpdateListener);
+            }   
+            
+            if (gameListener is IGameFixedUpdateListener gameFixedUpdateListener)
+            {
+                _gameFixedUpdateListeners.Add(gameFixedUpdateListener);
+            }
+            
+            if (gameListener is IGameLateUpdateListener gameLateUpdateListener)
+            {
+                _gameLateUpdateListeners.Add(gameLateUpdateListener);
+            }
         }
         
         [Button]
         public void StartGame()
         {
-            foreach (var gameListener in gameListeners)
+            foreach (var gameListener in _gameListeners)
             {
                 if (gameListener is IGameStartListener gameStartListener)
                 {
@@ -56,7 +114,7 @@ namespace ShootEmUp
         [Button]
         public void FinishGame()
         {
-            foreach (var gameListener in gameListeners)
+            foreach (var gameListener in _gameListeners)
             {
                 if (gameListener is IGameFinishListener gameFinishListener)
                 {
@@ -71,7 +129,7 @@ namespace ShootEmUp
         [Button]
         public void PauseGame()
         {
-            foreach (var gameListener in gameListeners)
+            foreach (var gameListener in _gameListeners)
             {
                 if (gameListener is IGamePauseListener gamePauseListener)
                 {
@@ -86,7 +144,7 @@ namespace ShootEmUp
         [Button]
         public void ResumeGame()
         {
-            foreach (var gameListener in gameListeners)
+            foreach (var gameListener in _gameListeners)
             {
                 if (gameListener is IGameResumeListener gameResumeListener)
                 {

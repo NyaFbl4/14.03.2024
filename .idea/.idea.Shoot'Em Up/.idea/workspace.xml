@@ -11,8 +11,10 @@
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/Bullets/BulletPool.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Character/CharacterController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameListeners.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Components/MoveComponent.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Input/InputManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="2h9ZrTRK7ho8ouGAKNDrm9J0uHs" />
@@ -22,6 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -31,10 +34,23 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1717009034038">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1717009034038" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Components/MoveComponent.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\Users\lomok\Desktop\Unity\Учеба\ДЗ\OTUS\Shoot'Em Up\Assets\Scripts\Components\MoveComponent.cs" initialLine="34" containingFunctionPresentation="method 'OnResumeGame'">
+            <startOffsets>
+              <option value="853" />
+            </startOffsets>
+            <endOffsets>
+              <option value="854" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
